@@ -1,3 +1,3 @@
-# Cpp4Linux
+# Cpp4Embedded
 
-Cpp4Linux course tasks!
+Cpp4Embedded course tasks!
