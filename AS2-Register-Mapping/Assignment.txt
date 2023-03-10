@@ -1,0 +1,62 @@
+Given the register layout below, implement a C++ container that best fit for mapping the registers to be easily accessible.
+Select your own choice of C++ container, and even you can use nested containers, but you have to justify your selection.
+
+The following is a bank of 4 sets of registers, each with the following layout:
+| ---------- |
+| CommandA_0 |
+| CommandA_1 |
+| CommandA_2 |
+| CommandA_3 |
+| ---------- |
+| ControlA_0 |
+| ---------- |
+| Status0A_0 |
+| ---------- |
+| OptionsA_0 |
+| OptionsA_1 |
+| ---------- |
+| CommandB_0 |
+| CommandB_1 |
+| CommandB_2 |
+| CommandB_3 |
+| ---------- |
+| ControlB_0 |
+| ---------- |
+| Status0B_0 |
+| ---------- |
+| OptionsB_0 |
+| OptionsB_1 |
+| ---------- |
+| CommandC_0 |
+| CommandC_1 |
+| CommandC_2 |
+| CommandC_3 |
+| ---------- |
+| ControlC_0 |
+| ---------- |
+| Status0C_0 |
+| ---------- |
+| OptionsC_0 |
+| OptionsC_1 |
+| ---------- |
+| CommandD_0 |
+| CommandD_1 |
+| CommandD_2 |
+| CommandD_3 |
+| ---------- |
+| ControlD_0 |
+| ---------- |
+| Status0D_0 |
+| ---------- |
+| OptionsD_0 |
+| OptionsD_1 |
+| ---------- |
+
+The mapping should map registers into the following types:
+Command: uint32
+Control: uint8
+Status0: uint8
+Options: uint16 
+
+To mimic a register bank, define the following byte array and use it for mapping.
+uint8 RegisterBank [128];
