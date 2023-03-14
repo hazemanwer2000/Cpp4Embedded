@@ -91,18 +91,24 @@ public:
     }
 
     void configure(PinNumber pinNumber, PinType pinType) {
-        REPLACE_BIT(*(base + pinNumber / 10), 3 * (pinNumber % 10), pinType);
+        uint32_t *ptr = base + pinNumber / 10;
+
+        std::cout << "Configuring...\n";
+        *ptr = REPLACE_BIT(*ptr, 3 * (pinNumber % 10), pinType);
     }
 
     void set(PinNumber pinNumber) {
+        std::cout << "Setting...\n";
         *(base + GPIO_SET0_OFFSET) = (1 << pinNumber);
     }
 
     void clear(PinNumber pinNumber) {
+        std::cout << "Clearing...\n";
         *(base + GPIO_CLR0_OFFSET) = (1 << pinNumber);
     }
 
     PinState get(PinNumber pinNumber) {
+        std::cout << "Getting...\n";
         return static_cast<PinState>(GET_BIT(*(base + GPIO_LVL0_OFFSET), pinNumber));
     }
 

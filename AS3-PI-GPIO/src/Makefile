@@ -33,7 +33,7 @@ DEPS := $(SRCS:.cpp=.d)
 
 
 # Compiler Optimization Options
-OPTIMIZE := -O0
+OPTIMIZE := -Og
 
 # Compiler Option, related to target
 SPECS := #
@@ -49,7 +49,7 @@ OBJCPY := #
 
 
 # Compiler, pre-processor, linker, and object-copy flags
-CFLAGS := -std=c++17 $(SPECS) $(OPTIMIZE)
+CFLAGS := -std=c++17 $(SPECS) $(OPTIMIZE) -g3
 PPFLAGS := $(HDR_DIRS)
 LDFLAGS := #
 CPY_FLAGS := #
