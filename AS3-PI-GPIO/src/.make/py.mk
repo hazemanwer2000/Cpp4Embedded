@@ -1,6 +1,6 @@
 
 # Python shell command
-PY := py
+PY := python3
 
 # Directory, containing python scripts
 PY_DIR := $(MAKE_WS)/py_scripts

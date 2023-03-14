@@ -23,7 +23,7 @@ LIB_OBJS := $(call GET_FILES,.,.obj)
 SRCS := $(call GET_FILES,.,.cpp)
 
 # Whitespace-separated list of directories, containing header files, prefixed with '-I'
-HDR_DIRS := $(addprefix -I,$(call GET_DIRS,.,.h))
+HDR_DIRS := $(addprefix -I,$(call GET_DIRS,.,.hpp))
 
 # Mapping of 'SRCS' to assembly, object, dependency files
 ASMS := $(SRCS:.cpp=.s)
@@ -49,7 +49,7 @@ OBJCPY := #
 
 
 # Compiler, pre-processor, linker, and object-copy flags
-CFLAGS := -std=c++11 $(SPECS) $(OPTIMIZE)
+CFLAGS := -std=c++17 $(SPECS) $(OPTIMIZE)
 PPFLAGS := $(HDR_DIRS)
 LDFLAGS := #
 CPY_FLAGS := #
@@ -57,7 +57,7 @@ CPY_FLAGS := #
 
 
 # Name of target executable file
-TARGET := main.exe
+TARGET := main
 
 .PHONY: clean all
 
