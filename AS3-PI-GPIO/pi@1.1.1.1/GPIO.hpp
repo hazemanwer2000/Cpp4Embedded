@@ -7,7 +7,6 @@
 #include <sys/mman.h>
 #include <iostream>
 #include <unistd.h>
-#include <exception>
 
 #include "Std_Types.hpp"
 #include "Bit_Utils.hpp"
@@ -19,15 +18,7 @@
 #define GPIO_CLR0_OFFSET        0xA
 #define GPIO_LVL0_OFFSET        0xD
 
-struct GPIOException {
-    std::string msg;
-
-    GPIOException(const std::string &msg) : msg("[GPIOException]: " + msg) {}
-};
-
 class GPIO {
-    static uint8_t count;
-
     uint32_t *base;
 
 public:
@@ -75,12 +66,6 @@ public:
     };
 
     GPIO () {
-        if (count > 0) {
-            throw GPIOException("Cannot create more than one GPIO instance.\n");
-        } else {
-            count++;
-        }
-
         void *ptr;
 
         // Open /dev/mem
@@ -129,7 +114,6 @@ public:
 
     ~GPIO() {
         munmap(reinterpret_cast<void *>(base), BLOCK_SIZE);
-        count--;
     }
 };
 

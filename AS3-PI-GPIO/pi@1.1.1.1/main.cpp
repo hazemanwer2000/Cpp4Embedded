@@ -5,13 +5,7 @@
 int main() {
     GPIO gpio;
 
-    try {
-        GPIO gpio;
-    } catch (GPIOException &e) {
-        std::cout << e.msg;
-    }
-
-    gpio.configure(GPIO::Pin15, GPIO::Output);
+    // gpio.configure(GPIO::Pin15, GPIO::Output);
 
     while (1) {
         gpio.set(GPIO::Pin15);
